@@ -11,7 +11,6 @@ WIP for an Apple watch app for https://github.com/SpacehuhnTech/esp8266_deauther
 Research: 
 
 1. As of v2, the deauther seems to store data in [web interface directory](https://github.com/SpacehuhnTech/esp8266_deauther/tree/v2/web_interface)
-  - 192.168.4.1/attack.json
   - 192.168.4.1/ssids.json
       - List of ssids *beacon attack seems to replicate ssids contained here*
   - 192.168.4.1/scan.json
