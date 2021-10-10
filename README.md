@@ -21,3 +21,22 @@ Research:
   - 192.168.4.1/attack.json
       - `[[false,0,0,0],[true,0,0,0],[false,0,0,0]]` can be translated to
       -  [[deauth = false], [Targets = 0], [pkt/s = 0/s]], [[beacon = false], [Targets = 0], [pkt/s = 0/s]], [[probe = false], [Targets = 0], [pkt/s = 0/s]]
+  - [attack.js](https://github.com/SpacehuhnTech/esp8266_deauther/blob/v2/web_interface/js/attack.js#L4)
+      - contains endpoints server has `run?cmd=attack`   
+  - [scan.js](https://github.com/SpacehuhnTech/esp8266_deauther/blob/v2/web_interface/js/scan.js)
+      ```js
+     var cmdStr = "scan "
+		 (type == 0 ? "aps " : "stations -t " + getE("scanTime").value + "s")
+		 " -ch " + getE("ch").options[getE("ch").selectedIndex].value;
+		 ```
+  - [ssids.js](https://github.com/SpacehuhnTech/esp8266_deauther/blob/bbe1b24e304853b1292a6eaa84a83a1b84ac0998/web_interface/js/ssids.js)
+      ```js
+      //disabling random
+      getFile("run?cmd=disable random", function () {
+        load();
+      });
+      // enabling random 
+        getFile("run?cmd=enable random " + getE("interval").value, function () {
+          load();
+        });
+     ```
