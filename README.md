@@ -5,7 +5,10 @@ WIP for an Apple watch app for https://github.com/SpacehuhnTech/esp8266_deauther
 
 ![Screen Shot 2021-10-09 at 10 26 10 PM](https://user-images.githubusercontent.com/43297314/136679025-9ef82c2c-b652-4467-92be-35c642bc54a6.png) ![Screen Shot 2021-10-09 at 10 25 35 PM](https://user-images.githubusercontent.com/43297314/136679017-f4b09c69-b321-4e0d-834f-3f5ebc35a1e8.png)
 
-*Made for fun*
+*Note: The bg color correlates to RSSI*
+
+
+---
 
 > The app violates Apples App store TOS (probably),so unless AltStore finds a way to sideload apple watch app you'll have to compile this for yourself.
 
@@ -41,3 +44,7 @@ Research:
           load();
         });
      ```
+     
+     
+*Made with  🖤 for fun*
+
