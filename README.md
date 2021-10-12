@@ -44,7 +44,30 @@ Research:
           load();
         });
      ```
-     
+---
+
+Currently Working Features
+- [x] Scan for APs
+- [x] Refresh Scanned List
+- [x] Beacon Start/Stop Attack (Random) 60 
+- [x] Beacon Start/Stop Attack (Custom) *custom amount*
+- [x] Log View
+- [x] Half Baked Add (append) SSID function.
+
+Wishlist
+- [ ] Read Values from attack.json and toggle buttons accordinly instead of depending on @State variables. 
+- [ ] Complete Half Baked add (append) SSID function
+- [ ] See Saved BSSID View
+- [ ] Remove that refresh button, use Timer and progress view instead.
+- [ ] Enhanced Log View
+- [ ] Scan Stations
+- [ ] Deauth Frame *pick ssid from "list"*
+
+Maybe will add in future
+- [ ] Custom pwned IP (in case it's different from 192.168.1.4) 
+- [ ] Probe *might scrape this*
+
+---
      
 *Made with  🖤 for fun*
 
