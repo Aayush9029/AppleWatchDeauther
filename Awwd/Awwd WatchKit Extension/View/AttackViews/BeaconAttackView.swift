@@ -8,26 +8,55 @@
 import SwiftUI
 
 struct BeaconAttackView: View {
-    @State var targetCount = 1;
+    @EnvironmentObject var attackViewModel: AttackViewModel
     var body: some View {
         NavigationView{
+            
             VStack{
-                Picker("AP count: \(Int(targetCount))", selection: $targetCount) {
-                    ForEach(0 ..< 61) { i in
-                        Text("\(i)")
+                Toggle(isOn: $attackViewModel.randomEnabled) {
+                    Text("Random")
+                }
+                .tint(.red)
+                .padding()
+                .onChange(of: attackViewModel.randomEnabled) { _ in
+                    Task{
+                        await attackViewModel.toggleRandom()
                     }
                 }
                 
-                Button {
-                    //
-                    print(targetCount)
-                } label: {
-                    Label("Start Attack", systemImage: "wifi.slash")
+                if !attackViewModel.randomEnabled {
+                    Picker("AP count: \(Int(attackViewModel.beaconCount))", selection: $attackViewModel.beaconCount) {
+                        ForEach(0 ..< 61) { i in
+                            Text("\(i)")
+                        }
+                    }
                 }
-                .tint(.red)
+                Spacer()
+
+                Divider()
+                
+                ScrollView{
+                    if !attackViewModel.randomEnabled {
+                        TextField("SSID", text: $attackViewModel.cloneBeaconName)
+                    }
+                    
+                    Button {
+                        Task{
+                            await attackViewModel.startStopBeaconAttack()
+                        }
+                    } label: {
+                        if !attackViewModel.beaconEnabled{
+                            Label("Start Attack", systemImage: "wifi")
+                        }else{
+                            Label("Stop Attack", systemImage: "wifi.slash")
+                        }
+                    }
+                    .tint(.red)
+                    .disabled(!attackViewModel.randomEnabled && attackViewModel.cloneBeaconName.count < 1 && !attackViewModel.beaconEnabled)
+                    
+                }
                 
             }
-            
         }
     }
 }
@@ -35,5 +64,6 @@ struct BeaconAttackView: View {
 struct BeaconAttackView_Previews: PreviewProvider {
     static var previews: some View {
         BeaconAttackView()
+            .environmentObject(AttackViewModel())
     }
 }

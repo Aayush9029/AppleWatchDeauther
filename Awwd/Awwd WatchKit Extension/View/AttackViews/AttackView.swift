@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct AttackView: View {
+    @StateObject var attackViewModel = AttackViewModel()
+
     var body: some View {
         NavigationView{
             VStack{
                 
                 NavigationLink {
                     BeaconAttackView()
+                        .environmentObject(attackViewModel)
                 } label: {
                     Label("Beacon", systemImage: "square.grid.3x3.middle.filled")
                 }.tint(.red)

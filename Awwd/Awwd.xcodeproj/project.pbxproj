@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C264DECD2714F83900220CCD /* ScannedApsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C264DECC2714F83900220CCD /* ScannedApsViewModel.swift */; };
+		C264DECF2715117400220CCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C264DECE2715117400220CCD /* Constants.swift */; };
+		C264DED12715144F00220CCD /* AttackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C264DED02715144F00220CCD /* AttackViewModel.swift */; };
 		C2ED78CA271278C900619D33 /* Awwd WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C2ED78C9271278C900619D33 /* Awwd WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C2ED78CF271278CA00619D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ED78CE271278CA00619D33 /* Assets.xcassets */; };
 		C2ED78D5271278CA00619D33 /* Awwd WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C2ED78D4271278CA00619D33 /* Awwd WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		C264DECC2714F83900220CCD /* ScannedApsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedApsViewModel.swift; sourceTree = "<group>"; };
+		C264DECE2715117400220CCD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C264DED02715144F00220CCD /* AttackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackViewModel.swift; sourceTree = "<group>"; };
 		C2ED78C5271278C900619D33 /* Awwd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awwd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ED78C9271278C900619D33 /* Awwd WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Awwd WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ED78CE271278CA00619D33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				C264DECC2714F83900220CCD /* ScannedApsViewModel.swift */,
+				C264DECE2715117400220CCD /* Constants.swift */,
+				C264DED02715144F00220CCD /* AttackViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -320,12 +326,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2ED790627129A4900619D33 /* AttackView.swift in Sources */,
+				C264DECF2715117400220CCD /* Constants.swift in Sources */,
 				C2ED78DC271278CA00619D33 /* AwwdApp.swift in Sources */,
 				C2ED78FE27127FD700619D33 /* ApModel.swift in Sources */,
 				C2ED78FC27127D1700619D33 /* StationModel.swift in Sources */,
 				C264DECD2714F83900220CCD /* ScannedApsViewModel.swift in Sources */,
 				C2ED79032712966400619D33 /* ApDetailView.swift in Sources */,
 				C2ED790827129D0F00619D33 /* BeaconAttackView.swift in Sources */,
+				C264DED12715144F00220CCD /* AttackViewModel.swift in Sources */,
 				C2ED78DA271278CA00619D33 /* ContentView.swift in Sources */,
 				C2ED78DE271278CA00619D33 /* ComplicationController.swift in Sources */,
 				C2ED7900271282E300619D33 /* AccessPointsView.swift in Sources */,

@@ -25,6 +25,10 @@ struct AccessPointsView: View {
                     HStack{
                         Button {
                             sapViewModel.accessPoints = []
+                            Task{
+                                await sapViewModel.scanNetwork()
+                                await sapViewModel.fetchScannedAPs()
+                            }
                             print("Scanning")
                         } label: {
                             Label("Scan", systemImage: "magnifyingglass")
