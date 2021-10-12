@@ -9,7 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-            ScanView()
+        NavigationView{
+            VStack{
+                NavigationLink {
+                    AttackView()
+                } label: {
+                    Label("Attack", systemImage: "iphone.homebutton.radiowaves.left.and.right")
+                }
+                .tint(.red)
+                
+                NavigationLink {
+                    AttackView()
+                } label: {
+                    Label("Scan APs", systemImage: "externaldrive.connected.to.line.below")
+                }
+                .tint(.green)
+                Divider()
+                    .padding()
+//                Spacer()
+                NavigationLink {
+                    AccessPointsView()
+                } label: {
+                    Label("Scaned APs", systemImage: "list.star")
+                }
+                .tint(.blue)
+                
+                
+            }
+        }
     }
 }
 

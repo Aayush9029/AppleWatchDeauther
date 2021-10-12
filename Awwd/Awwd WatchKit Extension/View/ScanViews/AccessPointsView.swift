@@ -16,11 +16,51 @@ import SwiftUI
 //let vendor: String  // to inconsistent to show vendor
 
 struct AccessPointsView: View {
+    @StateObject var sapViewModel = SAPViewModel()
+    @State var showingLogs = false
     var body: some View {
         NavigationView{
             VStack{
                 ScrollView(.vertical){
-                    ForEach(exampleApModel, id: \.self){ ap in
+                    HStack{
+                        Button {
+                            sapViewModel.accessPoints = []
+                            print("Scanning")
+                        } label: {
+                            Label("Scan", systemImage: "magnifyingglass")
+                                .labelStyle(.iconOnly)
+                        }
+                        .tint(.blue)
+                        
+                        Group{
+                            Label("Refresh", systemImage: "arrow.counterclockwise")
+                                .foregroundColor(.green)
+                                .labelStyle(.iconOnly)
+                                .padding(14)
+                                .background(.green.opacity(0.20))
+                                .cornerRadius(10)
+                                .onTapGesture {
+                                    Task{
+                                        print("REFRESHING..")
+                                        // Removing old data if (any)
+                                        sapViewModel.accessPoints = []
+                                        await sapViewModel.fetchScannedAPs()
+                                    }
+                                }
+                                .onLongPressGesture(minimumDuration: 0.2) {
+                                    print("SHOWING LOGS")
+                                    showingLogs.toggle()
+                                }
+                        }
+                    }
+                    .task {
+                        sapViewModel.accessPoints = []
+                        await sapViewModel.fetchScannedAPs()
+                    }
+                    Divider()
+                        .padding(.vertical)
+                    
+                    ForEach(sapViewModel.accessPoints, id: \.self){ ap in
                         NavigationLink {
                             ApDetailView(ap: ap)
                         } label: {
@@ -39,15 +79,15 @@ struct AccessPointsView: View {
                                     .font(.caption2)
                             }
                         }
-                        .background(rssiToColor(rssi: ap.rssi).opacity(0.25))
+                        .background(rssiToColor(rssi: ap.rssi).opacity(0.1))
                         .cornerRadius(5)
                         .padding(.bottom, 5)
-                        
-                        
-                        
                     }
                 }
             }
+        }
+        .alert(sapViewModel.state.rawValue, isPresented: $showingLogs) {
+            Button("OK", role: .cancel) { }
         }
     }
 }

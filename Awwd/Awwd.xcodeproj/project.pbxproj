@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C264DECD2714F83900220CCD /* ScannedApsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C264DECC2714F83900220CCD /* ScannedApsViewModel.swift */; };
 		C2ED78CA271278C900619D33 /* Awwd WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C2ED78C9271278C900619D33 /* Awwd WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C2ED78CF271278CA00619D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ED78CE271278CA00619D33 /* Assets.xcassets */; };
 		C2ED78D5271278CA00619D33 /* Awwd WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C2ED78D4271278CA00619D33 /* Awwd WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -15,7 +16,6 @@
 		C2ED78DE271278CA00619D33 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ED78DD271278CA00619D33 /* ComplicationController.swift */; };
 		C2ED78E0271278CB00619D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ED78DF271278CB00619D33 /* Assets.xcassets */; };
 		C2ED78E3271278CB00619D33 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ED78E2271278CB00619D33 /* Preview Assets.xcassets */; };
-		C2ED78F827127AB000619D33 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ED78F727127AB000619D33 /* ScanView.swift */; };
 		C2ED78FC27127D1700619D33 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ED78FB27127D1700619D33 /* StationModel.swift */; };
 		C2ED78FE27127FD700619D33 /* ApModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ED78FD27127FD700619D33 /* ApModel.swift */; };
 		C2ED7900271282E300619D33 /* AccessPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ED78FF271282E300619D33 /* AccessPointsView.swift */; };
@@ -67,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C264DECC2714F83900220CCD /* ScannedApsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedApsViewModel.swift; sourceTree = "<group>"; };
 		C2ED78C5271278C900619D33 /* Awwd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awwd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ED78C9271278C900619D33 /* Awwd WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Awwd WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ED78CE271278CA00619D33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		C2ED78DF271278CB00619D33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2ED78E2271278CB00619D33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C2ED78E4271278CB00619D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2ED78F727127AB000619D33 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		C2ED78FB27127D1700619D33 /* StationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
 		C2ED78FD27127FD700619D33 /* ApModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApModel.swift; sourceTree = "<group>"; };
 		C2ED78FF271282E300619D33 /* AccessPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessPointsView.swift; sourceTree = "<group>"; };
@@ -127,11 +127,11 @@
 		C2ED78D8271278CA00619D33 /* Awwd WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C2ED78DB271278CA00619D33 /* AwwdApp.swift */,
 				C2ED78D9271278CA00619D33 /* ContentView.swift */,
 				C2ED78F3271279EA00619D33 /* View */,
 				C2ED78F2271279E600619D33 /* Model */,
 				C2ED78F4271279EF00619D33 /* ViewModel */,
-				C2ED78DB271278CA00619D33 /* AwwdApp.swift */,
 				C2ED78DD271278CA00619D33 /* ComplicationController.swift */,
 				C2ED78DF271278CB00619D33 /* Assets.xcassets */,
 				C2ED78E4271278CB00619D33 /* Info.plist */,
@@ -169,6 +169,7 @@
 		C2ED78F4271279EF00619D33 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C264DECC2714F83900220CCD /* ScannedApsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -176,7 +177,6 @@
 		C2ED7901271287BE00619D33 /* ScanViews */ = {
 			isa = PBXGroup;
 			children = (
-				C2ED78F727127AB000619D33 /* ScanView.swift */,
 				C2ED78FF271282E300619D33 /* AccessPointsView.swift */,
 				C2ED79022712966400619D33 /* ApDetailView.swift */,
 			);
@@ -323,7 +323,7 @@
 				C2ED78DC271278CA00619D33 /* AwwdApp.swift in Sources */,
 				C2ED78FE27127FD700619D33 /* ApModel.swift in Sources */,
 				C2ED78FC27127D1700619D33 /* StationModel.swift in Sources */,
-				C2ED78F827127AB000619D33 /* ScanView.swift in Sources */,
+				C264DECD2714F83900220CCD /* ScannedApsViewModel.swift in Sources */,
 				C2ED79032712966400619D33 /* ApDetailView.swift in Sources */,
 				C2ED790827129D0F00619D33 /* BeaconAttackView.swift in Sources */,
 				C2ED78DA271278CA00619D33 /* ContentView.swift in Sources */,
