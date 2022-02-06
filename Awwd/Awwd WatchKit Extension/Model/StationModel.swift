@@ -8,15 +8,14 @@
 import Foundation
 
 struct StationModel {
-    let ssid    : String
-    let ch      : Int
-    let name    : String  // too inconsistent to show name
-    let vendor  : String
-    let pkts    : Int
-    let APindex : Int
-    let seen    : String
+    let ssid: String
+    let ch: Int
+    let name: String  // too inconsistent to show name
+    let vendor: String
+    let pkts: Int
+    let APindex: Int
+    let seen: String
 }
-
 
 let exampleStationModels = [
     StationModel(ssid: "b8:1d:aa:d5:6f:f0", ch: 8, name: "[[[[not mine]]]]", vendor: "don't!", pkts: 2, APindex: 4, seen: "<1sec"),

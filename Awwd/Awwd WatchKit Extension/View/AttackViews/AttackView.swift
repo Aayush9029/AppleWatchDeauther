@@ -11,31 +11,30 @@ struct AttackView: View {
     @StateObject var attackViewModel = AttackViewModel()
 
     var body: some View {
-        NavigationView{
-            VStack{
-                
+        NavigationView {
+            VStack {
+
                 NavigationLink {
                     BeaconAttackView()
                         .environmentObject(attackViewModel)
                 } label: {
                     Label("Beacon", systemImage: "square.grid.3x3.middle.filled")
                 }.tint(.red)
-                
+
                 NavigationLink {
                     BeaconAttackView()
                 } label: {
                     Label("Deauth Frame", systemImage: "wifi.slash")
                 }.tint(.orange)
-                
+
                 NavigationLink {
                     BeaconAttackView()
                 } label: {
                     Label("Probe", systemImage: "speaker.wave.2")
                 }.tint(.blue)
-                
-                
+
                 Spacer()
-                
+
             }
         }
     }

@@ -7,25 +7,25 @@
 
 import SwiftUI
 
-//let ssid  : String
-//let name  : String  // too inconsistent to show name
-//let ch    : Int
-//let rssi  : Int
-//let enc   : String
-//let bssid : String
-//let vendor: String  // to inconsistent to show vendor
+// let ssid  : String
+// let name  : String  // too inconsistent to show name
+// let ch    : Int
+// let rssi  : Int
+// let enc   : String
+// let bssid : String
+// let vendor: String  // to inconsistent to show vendor
 
 struct AccessPointsView: View {
     @StateObject var sapViewModel = SAPViewModel()
     @State var showingLogs = false
     var body: some View {
-        NavigationView{
-            VStack{
-                ScrollView(.vertical){
-                    HStack{
+        NavigationView {
+            VStack {
+                ScrollView(.vertical) {
+                    HStack {
                         Button {
                             sapViewModel.accessPoints = []
-                            Task{
+                            Task {
                                 await sapViewModel.scanNetwork()
                                 await sapViewModel.fetchScannedAPs()
                             }
@@ -35,8 +35,8 @@ struct AccessPointsView: View {
                                 .labelStyle(.iconOnly)
                         }
                         .tint(.blue)
-                        
-                        Group{
+
+                        Group {
                             Label("Refresh", systemImage: "arrow.counterclockwise")
                                 .foregroundColor(.green)
                                 .labelStyle(.iconOnly)
@@ -44,7 +44,7 @@ struct AccessPointsView: View {
                                 .background(.green.opacity(0.20))
                                 .cornerRadius(10)
                                 .onTapGesture {
-                                    Task{
+                                    Task {
                                         print("REFRESHING..")
                                         // Removing old data if (any)
                                         sapViewModel.accessPoints = []
@@ -63,13 +63,13 @@ struct AccessPointsView: View {
                     }
                     Divider()
                         .padding(.vertical)
-                    
-                    ForEach(sapViewModel.accessPoints, id: \.self){ ap in
+
+                    ForEach(sapViewModel.accessPoints, id: \.self) { ap in
                         NavigationLink {
                             ApDetailView(ap: ap)
                         } label: {
-                            HStack{
-                                VStack(alignment: .leading){
+                            HStack {
+                                VStack(alignment: .leading) {
                                     Text(ap.ssid)
                                         .font(.caption2)
                                         .bold()
@@ -96,12 +96,11 @@ struct AccessPointsView: View {
     }
 }
 
-
-extension AccessPointsView{
-    func encryptionToImage(enc: String) -> Image{
-        switch enc{
+extension AccessPointsView {
+    func encryptionToImage(enc: String) -> Image {
+        switch enc {
         case "WPA2":
-            
+
             return Image(systemName: "lock.fill")
         case "WPA*":
             return Image(systemName: "key.fill")
@@ -111,16 +110,16 @@ extension AccessPointsView{
             return Image(systemName: "questionmark")
         }
     }
-    func rssiToColor(rssi: Int) -> Color{
-        if (rssi > -55){
+    func rssiToColor(rssi: Int) -> Color {
+        if rssi > -55 {
             return .green
-        }else if (rssi > -60){
+        } else if rssi > -60 {
             return .blue
-        }else if (rssi > -70){
+        } else if rssi > -70 {
             return .purple
-        }else if (rssi > -80){
+        } else if rssi > -80 {
             return .orange
-        }else if (rssi > -90){
+        } else if rssi > -90 {
             return .red
         }
         return .white

@@ -5,15 +5,14 @@
 //  Created by Aayush Pokharel on 2021-10-11.
 //
 
-//import Foundation
+// import Foundation
 import SwiftUI
 
 class SAPViewModel: ObservableObject {
     @Published var accessPoints = [ApModel]()
     @Published var state: APFetcherProgress = .none
-    
-    
-    func scanNetwork()async{
+
+    func scanNetwork()async {
 //        run?cmd=scan aps  -ch all
         let url = "\(Constants.commandUrl)=scan%20aps%20-ch"
         guard let requestURL = URL(string: url) else {return}
@@ -22,27 +21,27 @@ class SAPViewModel: ObservableObject {
             let session = URLSession.shared
             let (data, _) = try await session.data(from: requestURL)
             print(data.description)
-        }catch{
+        } catch {
             print(error.localizedDescription)
         }
     }
-    
+
     func fetchRawJsonData(from url: URL) async throws -> Data {
         let session = URLSession.shared
         let (data, _) = try await session.data(from: url)
         return data
     }
-    
-    func jsonToAPModels(from data: Data){
-        
+
+    func jsonToAPModels(from data: Data) {
+
         do {
             // make sure this JSON is in the format we expect
             if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                 // try to read out a string array
                 if let aps = json["aps"] as? [NSArray] {
                     for ap in aps {
-                        
-                            let ssid = ap[0] 
+
+                            let ssid = ap[0]
                             let name = ap[1]
                             let ch = ap[2]
                             let rssi = ap[3]
@@ -62,29 +61,28 @@ class SAPViewModel: ObservableObject {
                                        )
                             )
                         }
-                        
+
                     }
                     DispatchQueue.main.sync {
                         state = .createdModel
                     }
                 }
 
-                //                MARK: Will implement later in v2 maybe
+                // MARK: Will implement later in v2 maybe
 //                if let stations = json["stations"] as? [Any] {
 //                    print("===STATIONS===")
 //                    print(stations)
 //                }
-            
-            
+
             }
         } catch let error as NSError {
             print("Failed to load: \(error.localizedDescription)")
         }
     }
-    
-    func fetchScannedAPs() async{
+
+    func fetchScannedAPs() async {
         // Removed previously fetched data (if any)
-        
+
         guard let url = URL(string: Constants.scanJsonUrl) else {
             print("INVALID URL")
             DispatchQueue.main.sync {
@@ -92,8 +90,8 @@ class SAPViewModel: ObservableObject {
             }
             return
         }
-        guard let data = try? await fetchRawJsonData(from: url) else{
-        
+        guard let data = try? await fetchRawJsonData(from: url) else {
+
             DispatchQueue.main.sync {
                 state = .missingData
             }
@@ -102,13 +100,11 @@ class SAPViewModel: ObservableObject {
         jsonToAPModels(from: data)
 
     }
-    
-    
+
 }
 
-
 // MARK: - The Json file is not "organized" (kinda bad) workable nonetheless ig
-extension SAPViewModel{
+extension SAPViewModel {
     enum APFetcherProgress: String {
         case none = "Nothing?"
         case gotData = "We Got the Data"

@@ -1,4 +1,4 @@
- //
+//
 //  ContentView.swift
 //  Awwd WatchKit Extension
 //
@@ -9,15 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView{
-            VStack{
+        NavigationView {
+            VStack {
                 NavigationLink {
                     AttackView()
                 } label: {
                     Label("Attack", systemImage: "iphone.homebutton.radiowaves.left.and.right")
                 }
                 .tint(.red)
-                
+
                 NavigationLink {
                     AttackView()
                 } label: {
@@ -33,8 +33,7 @@ struct ContentView: View {
                     Label("Scaned APs", systemImage: "list.star")
                 }
                 .tint(.blue)
-                
-                
+
             }
         }
     }

@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-//let ssid  : String
-//let name  : String  // too inconsistent to show name
-//let ch    : Int
-//let rssi  : Int    //
-//let enc   : String  //
-//let bssid : String
-//let vendor: String  // to inconsistent to show vendor
+// let ssid  : String
+// let name  : String  // too inconsistent to show name
+// let ch    : Int
+// let rssi  : Int    //
+// let enc   : String  //
+// let bssid : String
+// let vendor: String  // to inconsistent to show vendor
 
 struct ApDetailView: View {
     let ap: ApModel
     var body: some View {
-        NavigationView{
-            ScrollView{
-                VStack(alignment: .leading){
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading) {
                     Text(ap.ssid)
                         .bold()
                         .lineLimit(1)
@@ -39,7 +39,7 @@ struct ApDetailView: View {
                         Label("Add", systemImage: "plus.circle")
                     }
                     .tint(.green)
-                    
+
                 }
             }
         }
